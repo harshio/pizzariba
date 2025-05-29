@@ -1,4 +1,5 @@
 import './App.css';
+import Order from './Order.tsx';
 import React, { useState } from 'react';
 
 function Menu() {
@@ -69,7 +70,7 @@ function Menu() {
         Order
       </button>
       <div>
-        {orderPage === "Order" && <h3>Order</h3>}
+        {orderPage === "Order" && <Order orders={quantities}/>}
       </div>
     </>
   );
