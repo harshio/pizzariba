@@ -7,10 +7,6 @@
   pointer-events: none;
 }
 
-.extra{
-  padding-bottom: 10px;
-}
-
 h1{
   font-family: 'Archivo';
   font-size: 2rem; /* Optional: adjust size */
@@ -21,11 +17,18 @@ h1{
 h2{
   font-family: 'Archivo';
   font-weight: bold;
+  margin-left: 10px;
 }
 
-div{
-  padding-bottom: 5px;
-  padding-left: 10px;
+p{
+  font-family: 'Archivo';
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.btn {
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 @media (prefers-reduced-motion: no-preference) {

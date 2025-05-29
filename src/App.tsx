@@ -2,27 +2,23 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import { useState } from "react";
+import About from './About.tsx';
+import Contacts from './Contacts.tsx';
 
 function App() {
   const[currentString, setString] = useState("");
   return (
     <>
       <h1>
-        Home Page
+        Contradiction Pizza
       </h1>
-      <div>
-        <button type="button" class="btn btn-primary" onClick={()=>{setString("Menu")}}>Menu</button>
-      </div>
-      <div>
-        <button type="button" class="btn btn-primary" onClick={()=>{setString("About")}}>About</button>
-      </div>
-      <div class="extra">
-        <button type="button" class="btn btn-primary" onClick={()=>{setString("Contacts")}}>Contacts</button>
-      </div>
+        <button type="button" className="btn btn-primary" onClick={()=>{setString("Menu")}}>Menu</button>
+        <button type="button" className="btn btn-primary" onClick={()=>{setString("About")}}>About</button>
+        <button type="button" className="btn btn-primary" onClick={()=>{setString("Contacts")}}>Contacts</button>
       <div>
         {currentString === "Menu" && <h2>Menu</h2>}
-        {currentString === "About" && <h2>About</h2>}
-        {currentString === "Contacts" && <h2>Contacts</h2>}
+        {currentString === "About" && <About />}
+        {currentString === "Contacts" && <Contacts />}
       </div>
     </>
   );
