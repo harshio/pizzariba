@@ -7,6 +7,27 @@
   pointer-events: none;
 }
 
+.extra{
+  padding-bottom: 10px;
+}
+
+h1{
+  font-family: 'Archivo';
+  font-size: 2rem; /* Optional: adjust size */
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+h2{
+  font-family: 'Archivo';
+  font-weight: bold;
+}
+
+div{
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
