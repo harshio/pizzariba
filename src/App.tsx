@@ -4,6 +4,7 @@ import React from 'react';
 import { useState } from "react";
 import About from './About.tsx';
 import Contacts from './Contacts.tsx';
+import Menu from './Menu.tsx';
 
 function App() {
   const[currentString, setString] = useState("");
@@ -16,7 +17,7 @@ function App() {
         <button type="button" className="btn btn-primary" onClick={()=>{setString("About")}}>About</button>
         <button type="button" className="btn btn-primary" onClick={()=>{setString("Contacts")}}>Contacts</button>
       <div>
-        {currentString === "Menu" && <h2>Menu</h2>}
+        {currentString === "Menu" && <Menu />}
         {currentString === "About" && <About />}
         {currentString === "Contacts" && <Contacts />}
       </div>

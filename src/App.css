@@ -20,15 +20,56 @@ h2{
   margin-left: 10px;
 }
 
+.special{
+  display: inline-block;
+}
+
+h3{
+  font-family: 'Archivo';
+  font-weight: bold;
+  margin-left: 10px;
+}
+
 p{
   font-family: 'Archivo';
   font-weight: bold;
   margin-left: 10px;
 }
 
+.input-group {
+  width: auto;
+  max-width: 120px;
+}
+
+.input-group > .form-control {
+  flex: 0 0 auto;
+  width: 40px; /* Adjust as needed */
+  height: 30px; /* Set a fixed height */
+  line-height: 30px; /* Match line-height to height for vertical centering */
+  padding: 0 5px 2px 18px; /* Remove default padding */
+  font-size: 16px; /* Make the number more visible */
+  text-align: center; /* Ensure horizontal centering */
+  border: 1px solid #ccc; /* Optional: restore border for visual clarity */
+  border-radius: 4px; /* Optional: round corners */
+}
+
+.input-group > .btn {
+  flex: 0 0 auto;
+  height: 30px;        /* Match input height */
+  padding: 0 10px;     /* Control horizontal padding */
+  font-size: 16px;     /* Match input text size */
+  display: flex;       /* Center content vertically */
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+}
+
 .btn {
   margin-left: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+#orderButton {
+  margin-top: 30px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
