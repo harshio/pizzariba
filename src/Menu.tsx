@@ -4,15 +4,15 @@ import React, { useState } from 'react';
 function Menu() {
   // Initial items
   const initialItems = [
-    { id: 1, name: "Pizza" },
-    { id: 2, name: "Soda" },
-    { id: 3, name: "Fries" },
-    { id: 4, name: "Salad" },
-    { id: 5, name: "Cheese" },
-    { id: 6, name: "Coleslaw" },
-    { id: 7, name: "Pasta" },
-    { id: 8, name: "Garlic" },
-    { id: 9, name: "Lasagna" },
+    { id: 1, name: "Pizza, $6" },
+    { id: 2, name: "Soda, $3" },
+    { id: 3, name: "Fries, $7" },
+    { id: 4, name: "Salad, $5" },
+    { id: 5, name: "Chez, $2" },
+    { id: 6, name: "Dogg, $9" },
+    { id: 7, name: "Pasta, $8" },
+    { id: 8, name: "Garlic, $1" },
+    { id: 9, name: "Micro, $2" },
   ];
 
   // Quantities state
