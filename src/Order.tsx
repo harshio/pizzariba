@@ -1,19 +1,74 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface Props {
     orders: Record<number, [number, number]>;
+    initialItems: { id: number; name: string; price: number }[];
 }
 
-function Order({orders}: Props) {
-    let totalSum = 0;
-    for (const id in orders) {
-        const [quantity, price] = orders[Number(id)]; //Note that for each id, we have the quantity ordered and its price. Furthermore, we have another data structure in Menu.tsx that maps food name to id. Perhaps when we implement backend functionality here, we could begin by making it so you have to pass in a second JSON object in component 'call's so that Menu can pass in initialItems, and we can use that to come up with the full order description.
-        totalSum += quantity * price;
-    }
+function Order({ orders, initialItems }: Props) {
+    const [things, setThings] = useState<{ totalPrice: number } | null>(null);
+    const [orderString, setOrderString] = useState("");
+
+    useEffect(() => {
+        let totalSum = 0;
+        let orderStr = "";
+
+        for (const id in orders) {
+            const [quantity, price] = orders[Number(id)];
+            const item = initialItems.find(item => item.id === Number(id));
+            const foodName = item ? item.name.split(",")[0] : "Unknown Item";
+            totalSum += quantity * price;
+            if (quantity !== 0) {
+                orderStr += `${quantity} ${foodName}. `;
+            }
+        }
+
+        setOrderString(orderStr);
+
+        const data = {
+            orderNumber: Date.now(),
+            totalPrice: totalSum,
+            orderString: orderStr
+        };
+
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`http://localhost:8000/orders`, {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                setThings(result);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, [orders, initialItems]);
+
     return (
-        <h3>Your order is ${totalSum}.00</h3>
+        <>
+            {things ? (
+                <>
+                    <h3>Your order is ${things.totalPrice}.00</h3>
+                    <p>{orderString}</p>
+                </>
+            ) : (
+                <p>Loading your order...</p>
+            )}
+        </>
     );
 }
 
 export default Order;
+
+
+

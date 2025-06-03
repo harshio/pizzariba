@@ -70,7 +70,7 @@ function Menu() {
         Order
       </button>
       <div>
-        {orderPage === "Order" && <Order orders={quantities}/>}
+        {orderPage === "Order" && <Order orders={quantities} initialItems={initialItems}/>}
       </div>
     </>
   );
